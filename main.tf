@@ -30,3 +30,9 @@ module "msk" {
   private_subnet_ids = module.vpc.private_subnet_ids
   msk_sg_id          = module.security_groups.msk_sg_id
 }
+
+module "iam" {
+  source          = "./modules/iam"
+  project_name    = var.project_name
+  msk_cluster_arn = module.msk.cluster_arn
+}

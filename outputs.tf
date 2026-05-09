@@ -32,3 +32,11 @@ output "msk_cluster_arn" {
 output "msk_bootstrap_brokers" {
   value = module.msk.bootstrap_brokers
 }
+
+output "bastion_instance_profile_name" {
+  value = module.iam.bastion_instance_profile_name
+}
+
+output "bastion_role_arn" {
+  value = module.iam.bastion_role_arn
+}
