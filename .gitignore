@@ -1,0 +1,8 @@
+# Terraform state (contains secrets, never commit this)
+*.tfstate
+*.tfstate.backup
+.terraform/
+*.tfvars
+
+# SSH key (never commit this)
+*.pem
