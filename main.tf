@@ -36,3 +36,11 @@ module "iam" {
   project_name    = var.project_name
   msk_cluster_arn = module.msk.cluster_arn
 }
+
+module "ec2" {
+  source                        = "./modules/ec2"
+  project_name                  = var.project_name
+  public_subnet_id              = module.vpc.public_subnet_ids[0]
+  bastion_sg_id                 = module.security_groups.bastion_sg_id
+  bastion_instance_profile_name = module.iam.bastion_instance_profile_name
+}
