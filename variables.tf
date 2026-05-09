@@ -9,3 +9,8 @@ variable "project_name" {
   type        = string
   default     = "ecom-streaming"
 }
+
+variable "my_ip" {
+  description = "Your laptop public IP in CIDR format"
+  type        = string
+}
