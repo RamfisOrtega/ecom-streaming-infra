@@ -23,3 +23,10 @@ module "security_groups" {
   vpc_id       = module.vpc.vpc_id
   my_ip        = var.my_ip
 }
+
+module "msk" {
+  source             = "./modules/msk"
+  project_name       = var.project_name
+  private_subnet_ids = module.vpc.private_subnet_ids
+  msk_sg_id          = module.security_groups.msk_sg_id
+}

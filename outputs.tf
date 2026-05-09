@@ -24,3 +24,11 @@ output "msk_sg_id" {
 output "rds_sg_id" {
   value = module.security_groups.rds_sg_id
 }
+
+output "msk_cluster_arn" {
+  value = module.msk.cluster_arn
+}
+
+output "msk_bootstrap_brokers" {
+  value = module.msk.bootstrap_brokers
+}
