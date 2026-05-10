@@ -20,3 +20,8 @@ variable "my_ip" {
   description = "Your laptop public IP for SSH access"
   type        = string
 }
+
+variable "account_id" {
+  description = "AWS Account ID"
+  type        = string
+}
