@@ -28,3 +28,14 @@ module "s3" {
   environment  = var.environment
   account_id   = var.account_id
 }
+
+module "rds" {
+  source = "./modules/rds"
+
+  project_name       = var.project_name
+  environment        = var.environment
+  vpc_id             = module.vpc.vpc_id
+  private_subnet_ids = module.vpc.private_subnet_ids
+  rds_sg_id          = module.security_groups.rds_sg_id
+  db_password        = var.db_password
+}
