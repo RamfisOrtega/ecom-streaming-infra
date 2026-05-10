@@ -12,3 +12,8 @@ output "private_subnet_ids" {
   description = "Private Subnet IDs"
   value       = aws_subnet.private[*].id
 }
+
+output "ssm_endpoint_sg_id" {
+  description = "SSM Endpoint Security Group ID"
+  value       = aws_security_group.ssm_endpoint.id
+}

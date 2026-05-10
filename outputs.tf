@@ -44,10 +44,10 @@ output "private_subnet_ids" {
 #   value = module.iam.bastion_role_arn
 # }
 
-# output "bastion_instance_id" {
-#   value = module.ec2.bastion_instance_id
-# }
+output "bastion_instance_id" {
+   value = module.ec2.bastion_instance_id
+ }
 
-# output "bastion_public_ip" {
-#   value = module.ec2.bastion_public_ip
-# }
+ output "bastion_public_ip" {
+   value = module.ec2.bastion_public_ip
+ }
