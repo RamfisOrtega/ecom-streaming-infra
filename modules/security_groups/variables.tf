@@ -1,19 +1,16 @@
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = "eu-north-1"
-}
-
 variable "project_name" {
   description = "Project name"
   type        = string
-  default     = "ecom-streaming"
 }
 
 variable "environment" {
   description = "Environment name"
   type        = string
-  default     = "dev"
+}
+
+variable "vpc_id" {
+  description = "VPC ID"
+  type        = string
 }
 
 variable "my_ip" {
