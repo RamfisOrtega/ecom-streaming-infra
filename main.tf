@@ -32,9 +32,12 @@ module "msk" {
 }
 
 module "iam" {
-  source          = "./modules/iam"
-  project_name    = var.project_name
-  msk_cluster_arn = module.msk.cluster_arn
+  source           = "./modules/iam"
+  project_name     = var.project_name
+  msk_cluster_arn  = module.msk.cluster_arn
+  msk_cluster_uuid = module.msk.cluster_uuid
+  account_id       = "381491941344"
+  region           = var.aws_region
 }
 
 module "ec2" {
