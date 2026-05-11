@@ -95,11 +95,29 @@ resource "aws_security_group" "msk" {
     security_groups = [aws_security_group.ec2.id]
   }
 
+  # Kafka IAM from EC2 ← ADDED
+  ingress {
+    description     = "Kafka IAM from EC2"
+    from_port       = 9098
+    to_port         = 9098
+    protocol        = "tcp"
+    security_groups = [aws_security_group.ec2.id]
+  }
+
   # Kafka from Lambda
   ingress {
     description     = "Kafka from Lambda"
     from_port       = 9092
     to_port         = 9092
+    protocol        = "tcp"
+    security_groups = [aws_security_group.lambda.id]
+  }
+
+  # Kafka IAM from Lambda ← ADDED
+  ingress {
+    description     = "Kafka IAM from Lambda"
+    from_port       = 9098
+    to_port         = 9098
     protocol        = "tcp"
     security_groups = [aws_security_group.lambda.id]
   }
