@@ -205,6 +205,7 @@ resource "aws_iam_role_policy_attachment" "ec2_ssm" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+# EC2 → MSK permissions
 resource "aws_iam_role_policy" "ec2_msk" {
   name = "${var.project_name}-${var.environment}-ec2-msk-policy"
   role = aws_iam_role.ec2.id
@@ -220,6 +221,26 @@ resource "aws_iam_role_policy" "ec2_msk" {
           "kafka-cluster:Connect",
           "kafka-cluster:WriteData",
           "kafka-cluster:ReadData"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+# EC2 → Secrets Manager permissions
+resource "aws_iam_role_policy" "ec2_secrets" {
+  name = "${var.project_name}-${var.environment}-ec2-secrets-policy"
+  role = aws_iam_role.ec2.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "secretsmanager:GetSecretValue",
+          "secretsmanager:ListSecrets"
         ]
         Resource = "*"
       }

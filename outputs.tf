@@ -28,13 +28,13 @@ output "private_subnet_ids" {
 #   value = module.security_groups.rds_sg_id
 # }
 
-# output "msk_cluster_arn" {
-#   value = module.msk.cluster_arn
-# }
+output "msk_cluster_arn" {
+  value = module.msk.cluster_arn
+}
 
-# output "msk_bootstrap_brokers" {
-#   value = module.msk.bootstrap_brokers
-# }
+output "msk_bootstrap_brokers" {
+  value = module.msk.bootstrap_brokers
+}
 
 # output "bastion_instance_profile_name" {
 #   value = module.iam.bastion_instance_profile_name
